@@ -61,6 +61,8 @@ apps/sdk/
 
 ### 1.2 Backend - Account Endpoints
 
+**Backend Implementation:** `apps/subscription/api/sdk_views.py`
+
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/sdk/account/me/` | GET | Get account info |
@@ -149,6 +151,8 @@ api.add_router("/sdk/", sdk_router)
 
 ### 2.2 Chat API
 
+**Backend Implementation:** `apps/chat/api/sdk_views.py`
+
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/sdk/chat/completions/` | POST | Create chat completion |
@@ -197,6 +201,8 @@ api.add_router("/sdk/", sdk_router)
 
 ### 2.3 Writer API
 
+**Backend Implementation:** `apps/AI_writer/api/sdk_views.py`
+
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/sdk/writer/generate/` | POST | Generate content |
@@ -208,6 +214,8 @@ api.add_router("/sdk/", sdk_router)
 
 ### 2.4 Image API
 
+**Backend Implementation:** `apps/image/api/sdk_views.py`
+
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/sdk/image/generate/` | POST | Text to image |
@@ -216,6 +224,8 @@ api.add_router("/sdk/", sdk_router)
 | `/sdk/image/variations/` | POST | Create variations |
 
 ### 2.5 Documents API
+
+**Backend Implementation:** `apps/chat_pdf/api/sdk_views.py`
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -246,6 +256,8 @@ api.add_router("/sdk/", sdk_router)
 
 ### 3.1 Audio API
 
+**Backend Implementation:** `apps/audio/api/sdk_views.py`
+
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/sdk/audio/speech/` | POST | Text to speech |
@@ -253,6 +265,8 @@ api.add_router("/sdk/", sdk_router)
 | `/sdk/audio/translate/` | POST | Translate audio |
 
 ### 3.2 Trends API
+
+**Backend Implementation:** `apps/trend_discovery/api/sdk_views.py`
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -264,6 +278,8 @@ api.add_router("/sdk/", sdk_router)
 | `/sdk/trends/reddit/trending/` | GET | Reddit trending |
 
 ### 3.3 Market API
+
+**Backend Implementation:** `apps/market_intel/api/sdk_views.py`
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|

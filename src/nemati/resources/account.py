@@ -38,7 +38,7 @@ class Account:
             print(f"Email: {account.email}")
             print(f"Plan: {account.plan.name}")
         """
-        response = self._http.request("GET", "/account/me")
+        response = self._http.request("GET", "/account/me/")
         return AccountInfo.from_dict(response.get("data", response))
     
     def credits(self) -> Credits:
@@ -54,7 +54,7 @@ class Account:
             print(f"Used: {credits.used}")
             print(f"Remaining: {credits.remaining}")
         """
-        response = self._http.request("GET", "/account/credits")
+        response = self._http.request("GET", "/account/credits/")
         return Credits.from_dict(response.get("data", response))
     
     def usage(
@@ -88,7 +88,7 @@ class Account:
         if end_date:
             params["end_date"] = end_date
         
-        response = self._http.request("GET", "/account/usage", params=params)
+        response = self._http.request("GET", "/account/usage/", params=params)
         return Usage.from_dict(response.get("data", response))
     
     def limits(self) -> Limits:
@@ -103,7 +103,7 @@ class Account:
             print(f"Chat messages/day: {limits.chat.max_messages_per_day}")
             print(f"Image generations/day: {limits.image.max_per_day}")
         """
-        response = self._http.request("GET", "/account/limits")
+        response = self._http.request("GET", "/account/limits/")
         return Limits.from_dict(response.get("data", response))
     
     def api_keys(self) -> list:
@@ -113,5 +113,5 @@ class Account:
         Returns:
             List of API key info (without the actual key values).
         """
-        response = self._http.request("GET", "/account/api-keys")
+        response = self._http.request("GET", "/account/api-keys/")
         return response.get("data", response.get("api_keys", []))

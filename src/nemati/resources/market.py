@@ -64,7 +64,7 @@ class Market:
             **kwargs,
         }
         
-        response = self._http.request("POST", "/market/analyze", json=payload)
+        response = self._http.request("POST", "/market/analyze/", json=payload)
         return MarketAnalysis.from_dict(response.get("data", response))
     
     def search(
@@ -88,7 +88,7 @@ class Market:
         if type:
             params["type"] = type
         
-        response = self._http.request("GET", "/market/search", params=params)
+        response = self._http.request("GET", "/market/search/", params=params)
         return response.get("data", response.get("results", []))
 
 

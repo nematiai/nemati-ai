@@ -76,7 +76,7 @@ class Image:
         if negative_prompt:
             payload["negative_prompt"] = negative_prompt
         
-        response = self._http.request("POST", "/image/generate", json=payload)
+        response = self._http.request("POST", "/image/generate/", json=payload)
         data = response.get("data", response)
         
         if isinstance(data, list):
@@ -131,7 +131,7 @@ class Image:
         
         response = self._http.request(
             "POST",
-            "/image/edit",
+            "/image/edit/",
             files=files,
             data=data,
         )
@@ -166,7 +166,7 @@ class Image:
         
         response = self._http.request(
             "POST",
-            "/image/upscale",
+            "/image/upscale/",
             files=files,
             data=data,
         )
@@ -194,7 +194,7 @@ class Image:
         
         response = self._http.request(
             "POST",
-            "/image/variations",
+            "/image/variations/",
             files=files,
             data=data,
         )

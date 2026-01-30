@@ -79,7 +79,7 @@ class Trends:
         if platforms:
             payload["platforms"] = platforms
         
-        response = self._http.request("POST", "/trends/search", json=payload)
+        response = self._http.request("POST", "/trends/search/", json=payload)
         return TrendSearchResult.from_dict(response.get("data", response))
     
     def analyze(
@@ -117,7 +117,7 @@ class Trends:
         if url:
             payload["url"] = url
         
-        response = self._http.request("POST", "/trends/analyze", json=payload)
+        response = self._http.request("POST", "/trends/analyze/", json=payload)
         return TrendAnalysis.from_dict(response.get("data", response))
     
     def platforms(self) -> List[dict]:
@@ -127,7 +127,7 @@ class Trends:
         Returns:
             List of platform info dictionaries.
         """
-        response = self._http.request("GET", "/trends/platforms")
+        response = self._http.request("GET", "/trends/platforms/")
         return response.get("data", response.get("platforms", []))
 
 
@@ -169,7 +169,7 @@ class PlatformTrends:
             **kwargs,
         }
         
-        response = self._http.request("POST", "/trends/search", json=payload)
+        response = self._http.request("POST", "/trends/search/", json=payload)
         data = response.get("data", response)
         items = data.get("items", []) if isinstance(data, dict) else data
         return [TrendItem.from_dict(item) for item in items]

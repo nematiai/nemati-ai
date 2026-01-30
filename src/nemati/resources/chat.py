@@ -101,12 +101,12 @@ class Chat:
         if stream:
             return self._stream(payload)
         
-        response = self._http.request("POST", "/chat/completions", json=payload)
+        response = self._http.request("POST", "/chat/completions/", json=payload)
         return ChatResponse.from_dict(response.get("data", response))
     
     def _stream(self, payload: dict) -> Iterator[ChatChunk]:
         """Handle streaming response."""
-        for line in self._http.stream("POST", "/chat/completions", json=payload):
+        for line in self._http.stream("POST", "/chat/completions/", json=payload):
             if line.startswith("data: "):
                 data = line[6:]
                 if data.strip() == "[DONE]":
@@ -145,7 +145,7 @@ class Conversations:
         if system_prompt:
             payload["system_prompt"] = system_prompt
         
-        response = self._http.request("POST", "/chat/conversations", json=payload)
+        response = self._http.request("POST", "/chat/conversations/", json=payload)
         return Conversation.from_dict(response.get("data", response))
     
     def list(
@@ -165,7 +165,7 @@ class Conversations:
         """
         response = self._http.request(
             "GET",
-            "/chat/conversations",
+            "/chat/conversations/",
             params={"limit": limit, "offset": offset},
         )
         return [

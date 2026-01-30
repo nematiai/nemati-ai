@@ -66,7 +66,7 @@ class Documents:
         
         response = self._http.request(
             "POST",
-            "/documents/upload",
+            "/documents/upload/",
             files=files,
             data=data,
         )
@@ -162,7 +162,7 @@ class Documents:
         if conversation_id:
             payload["conversation_id"] = conversation_id
         
-        response = self._http.request("POST", "/documents/chat", json=payload)
+        response = self._http.request("POST", "/documents/chat/", json=payload)
         return DocumentChatResponse.from_dict(response.get("data", response))
     
     def convert(
@@ -194,7 +194,7 @@ class Documents:
         
         response = self._http.request(
             "POST",
-            "/documents/convert",
+            "/documents/convert/",
             files=files,
             data=data,
         )
@@ -219,7 +219,7 @@ class Documents:
         
         response = self._http.request(
             "POST",
-            "/documents/extract",
+            "/documents/extract/",
             files=files,
             data=kwargs,
         )

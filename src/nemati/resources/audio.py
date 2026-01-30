@@ -72,7 +72,7 @@ class Audio:
         
         response = self._http.request(
             "POST",
-            "/audio/transcribe",
+            "/audio/transcribe/",
             files=files,
             data=data,
         )
@@ -108,7 +108,7 @@ class Audio:
         
         response = self._http.request(
             "POST",
-            "/audio/translate",
+            "/audio/translate/",
             files=files,
             data=data,
         )
@@ -162,5 +162,5 @@ class Speech:
             **kwargs,
         }
         
-        response = self._http.request("POST", "/audio/speech", json=payload)
+        response = self._http.request("POST", "/audio/speech/", json=payload)
         return SpeechResponse.from_dict(response.get("data", response))

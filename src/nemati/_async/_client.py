@@ -36,7 +36,7 @@ class AsyncHTTPClient:
                     "Authorization": f"Bearer {self.config.api_key}",
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "User-Agent": f"nemati-ai/{__version__}",
+                    "User-Agent": f"nemati-python/{__version__}",
                     "X-API-Key": self.config.api_key,
                 },
             )

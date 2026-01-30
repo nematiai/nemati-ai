@@ -12,7 +12,7 @@ class Config:
     """SDK Configuration."""
     
     api_key: Optional[str] = None
-    base_url: str = "https://api.nemati.ai/v1/sdk"
+    base_url: str = "http://localhost:4600/auth/api/v1/sdk"
     timeout: float = 60.0
     max_retries: int = 3
     

@@ -17,8 +17,8 @@ class WriterUsage:
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "WriterUsage":
         return cls(
-            input_tokens=data.get("input_tokens", 0),
-            output_tokens=data.get("output_tokens", 0),
+            input_tokens=data.get("input_tokens", data.get("prompt_tokens", 0)),
+            output_tokens=data.get("output_tokens", data.get("completion_tokens", 0)),
             total_tokens=data.get("total_tokens", 0),
             credits=data.get("credits", 0.0),
         )
@@ -38,20 +38,31 @@ class WriterResponse:
     def from_dict(cls, data: Dict[str, Any]) -> "WriterResponse":
         usage_data = data.get("usage")
         usage = WriterUsage.from_dict(usage_data) if usage_data else None
-        
         text = data.get("text", data.get("content", ""))
         
         return cls(
             id=data.get("id", ""),
             text=text,
             content_type=data.get("content_type", ""),
-            word_count=data.get("word_count", len(text.split())),
+            word_count=data.get("word_count", len(text.split()) if text else 0),
             model=data.get("model", ""),
             usage=usage,
         )
     
     def __str__(self) -> str:
         return self.text
+
+
+@dataclass
+class WriterChunk:
+    """Streaming chunk from AI Writer."""
+    text: str = ""
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "WriterChunk":
+        return cls(
+            text=data.get("text", ""),
+        )
 
 
 @dataclass
