@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nemati-ai"
-version = "0.1.1"
+version = "0.1.2"
 description = "Official Python SDK for Nemati AI - AI Content Creation, Image Generation, Trend Discovery & More"
 readme = "README.md"
 license = "MIT"
