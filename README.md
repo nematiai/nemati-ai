@@ -233,5 +233,5 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Support
 
 - 📧 Email: support@nemati.ai
-- 💬 Discord: [discord.gg/nemati](https://discord.gg/nemati)
-- 🐛 Issues: [GitHub Issues](https://github.com/nemati-ai/nemati-ai/issues)
+- 💬 Discord: [discord.gg/nemati](https://discord.gg/nemati/KrFTV64NvS)
+- 🐛 Issues: [GitHub Issues](https://github.com/nematiai/nemati-ai/issues)
